@@ -8,28 +8,34 @@
  *
  * @author Salete
  */
-public class Cliente {
-    private Long id;
-    private String nome;
-    private String sobrenome;
-    private String RG;
-    private String CPF;
-    private String endereco;
+public class Cliente implements Comparable<Cliente>{
+    public long id;
+    public String nome;
+    public String sobrenome;
+    public String RG;
+    public String CPF;
+    public String endereco;
+    public double salario;
+    public int ordenar;
     
-    public Cliente(Long id,String nome, String sobrenome, String RG, String CPF, String endereco){
+    public Cliente() {
+    }
+    
+    public Cliente(long id,String nome, String sobrenome, String RG, String CPF, String endereco, double salario){
         this.id = id;
         this.nome = nome;
         this.sobrenome = sobrenome;
         this.RG = RG;
         this.CPF = CPF;
-        this.endereco = endereco;          
+        this.endereco = endereco;
+        this.salario = salario;
     }
 
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -73,4 +79,35 @@ public class Cliente {
         this.endereco = endereco;
     }
     
+     public double getSalario() {
+        return salario;
+    }
+
+    public void setSalario(double salario) {
+        this.salario = salario;
+    }
+
+    public int ordenar() {
+        return ordenar;
+    }
+
+    public void setordenar(int ordenarPor) {
+        this.ordenar = ordenarPor;
+    }
+    
+    @Override
+    public int compareTo(Cliente cliente) {
+        if (this.ordenar == 0) 
+            return this.nome.compareTo(cliente.nome);
+        else if (this.ordenar == 1) 
+            return this.sobrenome.compareTo(cliente.sobrenome);
+        else {
+            if (this.salario < cliente.salario) 
+                    return 1;
+                else if (this.salario > cliente.salario)
+                    return -1;
+                else
+                    return 0;
+        }
+    }
 }

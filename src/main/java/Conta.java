@@ -9,12 +9,12 @@
  * @author Salete
  */
 public class Conta{
-    private String Dono;
-    private int Numero;
-    private double  Deposita;
-    private double Saca;
-    private double Remunera;
-    private double Saldo;
+    public String Dono;
+    public int Numero;
+    public double  Deposita;
+    public double Saca;
+    public double Remunera;
+    public double Saldo;
 
     public Conta(String Dono, int Numero, double Deposita, double Saca, double Remunera, double Saldo) {
         this.Dono = Dono;
@@ -73,6 +73,14 @@ public class Conta{
         this.Saldo = Saldo;
     }
     
-    
-    
+    public void remunera() {
+      }
+
+      public boolean deposita(double valor) {
+          return valor > 0;
+      }
+
+       public boolean saca(double valor) {
+          return valor > 0;   
+      }
 }

@@ -48,7 +48,7 @@ public class Tabela extends AbstractTableModel {
             case 1: return customer.getSobrenome();//if column 2 (birthday)
             case 2: return customer.getRG();
             case 3: return customer.getCPF();
-            case 4: return customer.getEndereco() ;
+            case 4: return customer.getEndereco();
             default : return null;
         }
     }
